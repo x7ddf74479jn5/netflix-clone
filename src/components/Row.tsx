@@ -40,7 +40,7 @@ export const Row: VFC<Props> = ({ title, movies, isLargeRow }) => {
     if (trailerUrl) {
       setTrailerUrl('');
     } else {
-      let _trailerUrl = await axios.get(`/movie/${movie.id}/videos?api_key=fb34530271b349314af0de263d16ab5a`);
+      let _trailerUrl = await axios.get(`/movie/${movie.id}/videos?api_key=${process.env.API_KEY}`);
       setTrailerUrl(_trailerUrl.data.results[0]?.key);
     }
     movieTrailer(movie?.name || movie?.title || movie?.original_name || '')
